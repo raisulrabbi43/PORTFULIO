@@ -1,1 +1,516 @@
+<!DOCTYPE html>htmlg="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M/S Rabbi Tredash | Agriculture</title>
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, "Noto Sans Bengali", sans-serif;
+    }
+
+    body {
+      background: #f3f8f1;
+      color: #183b1a;
+    }
+
+    header {
+      background: #176b2c;
+      color: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      min-height: 430px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      background:
+        linear-gradient(rgba(0,80,25,.55), rgba(0,60,20,.65)),
+        url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #f4c542;
+      color: #173c1b;
+      padding: 13px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 55px 6%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 12px;
+      color: #176b2c;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #55705a;
+    }
+
+    .search-box {
+      max-width: 600px;
+      margin: 0 auto 35px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 15px 18px;
+      border: 2px solid #a8c9aa;
+      border-radius: 30px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .crop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .crop-card {
+      background: white;
+      border-radius: 15px;
+      padding: 22px;
+      box-shadow: 0 5px 18px rgba(0,0,0,.08);
+      border-left: 5px solid #2d8a3e;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .crop-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 9px 22px rgba(0,0,0,.14);
+    }
+
+    .crop-icon {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .crop-card h3 {
+      color: #176b2c;
+      margin-bottom: 8px;
+    }
+
+    .disease {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 12px;
+    }
+
+    .medicine {
+      display: none;
+      margin-top: 15px;
+      padding: 15px;
+      background: #edf8ed;
+      border-radius: 10px;
+      border-top: 3px solid #2d8a3e;
+    }
+
+    .medicine.show {
+      display: block;
+    }
+
+    .medicine strong {
+      color: #176b2c;
+    }
+
+    .notice {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #6b5a2a;
+      background: #fff8dc;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .about {
+      background: white;
+      text-align: center;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.8;
+      color: #4d604f;
+    }
+
+    footer {
+      background: #124d21;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 0 7px;
+        font-size: 14px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">🌱 M/S Rabbi Tredash</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#disease">রোগ ও পণ্য</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+
+  <!-- HOME -->
+  <section class="hero" id="home">
+    <div>
+      <h1>Welcome to M/S Rabbi Tredash</h1>
+      <p>কৃষকের পাশে, আধুনিক কৃষির সাথে 🌾</p>
+      <a href="#disease" class="btn">রোগ ও পণ্য দেখুন</a>
+    </div>
+  </section>
+
+
+  <!-- DISEASE SECTION -->
+  <section id="disease">
+
+    <h2 class="section-title">🌾 ফসল ও রোগের তথ্য</h2>
+
+    <p class="section-subtitle">
+      আপনার ফসলের রোগ নির্বাচন করুন এবং সংশ্লিষ্ট পণ্যের নাম দেখুন।
+    </p>
+
+    <div class="search-box">
+      <input
+        type="text"
+        id="search"
+        placeholder="ফসল বা রোগের নাম লিখে খুঁজুন..."
+        onkeyup="searchDisease()">
+    </div>
+
+
+    <div class="crop-grid" id="cropGrid">
+
+      <!-- 1 Rice -->
+      <div class="crop-card" data-search="ধান ব্লাস্ট blast">
+        <div class="crop-icon">🌾</div>
+        <h3>১. ধান</h3>
+        <p class="disease">ব্লাস্ট রোগ (Blast)</p>
+
+        <div class="medicine">
+          <strong>Syngenta Product:</strong><br>
+          এমিস্টার টপ ৩২৫ এসসি (Amistar Top)<br>
+          / স্কোর ২৫০ ইসি (Score)
+
+          <div class="notice">
+            ব্যবহার করার আগে পণ্যের অনুমোদিত লেবেল ও কৃষি বিশেষজ্ঞের পরামর্শ অনুসরণ করুন।
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 2 Wheat -->
+      <div class="crop-card" data-search="গম wheat blast">
+        <div class="crop-icon">🌾</div>
+        <h3>২. গম</h3>
+        <p class="disease">গমের ব্লাস্ট রোগ (Wheat Blast)</p>
+
+        <div class="medicine">
+          <strong>Product:</strong><br>
+          টিল্ট ২৫০ ইসি (Tilt)<br>
+          / এমিস্টার টপ ৩২৫ এসসি (Amistar Top)
+
+          <div class="notice">
+            ব্যবহার করার আগে পণ্যের অনুমোদিত লেবেল ও কৃষি বিশেষজ্ঞের পরামর্শ অনুসরণ করুন।
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 3 Potato -->
+      <div class="crop-card" data-search="আলু potato late blight মড়ক">
+        <div class="crop-icon">🥔</div>
+        <h3>৩. আলু</h3>
+        <p class="disease">লেট ব্লাইট / মড়ক রোগ (Late Blight)</p>
+
+        <div class="medicine">
+          <strong>Product:</strong><br>
+          রিডোমিল গোল্ড ৬৮ ডব্লিউজি (Ridomil Gold)<br>
+          / রেভাস (Revus)
+
+          <div class="notice">
+            ব্যবহার করার আগে পণ্যের অনুমোদিত লেবেল ও কৃষি বিশেষজ্ঞের পরামর্শ অনুসরণ করুন।
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 4 Tomato -->
+      <div class="crop-card" data-search="টমেটো tomato blight">
+        <div class="crop-icon">🍅</div>
+        <h3>৪. টমেটো</h3>
+        <p class="disease">আগাম ও নাবি ঝলসানো (Blight)</p>
+
+        <div class="medicine">
+          <strong>Product:</strong><br>
+          জ্যাজ ৮০ ডব্লিউপি (Jazz)<br>
+          / রিডোমিল গোল্ড (Ridomil Gold)
+
+          <div class="notice">
+            ব্যবহার করার আগে পণ্যের অনুমোদিত লেবেল ও কৃষি বিশেষজ্ঞের পরামর্শ অনুসরণ করুন।
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 5 Eggplant -->
+      <div class="crop-card" data-search="বেগুন eggplant পোকা fruit shoot borer">
+        <div class="crop-icon">🍆</div>
+        <h3>৫. বেগুন</h3>
+        <p class="disease">ডগা ও ফল ছিদ্রকারী পোকা</p>
+
+        <div class="medicine">
+          <strong>Product:</strong><br>
+          ভলিয়াম ফ্লেক্সি (Voliam Flexi)<br>
+          / আলিকা (Alika)
+
+          <div class="notice">
+            ব্যবহার করার আগে পণ্যের অনুমোদিত লেবেল ও কৃষি বিশেষজ্ঞের পরামর্শ অনুসরণ করুন।
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 6 Jute -->
+      <div class="crop-card" data-search="পাট jute stem rot">
+        <div class="crop-icon">🌿</div>
+        <h3>৬. পাট</h3>
+        <p class="disease">কাণ্ড পচা রোগ (Stem Rot)</p>
+
+        <div class="medicine">
+          <strong>Product:</strong><br>
+          স্কোর ২৫০ ইসি (Score 250 EC)
+
+          <div class="notice">
+            ব্যবহার করার আগে পণ্যের অনুমোদিত লেবেল ও কৃষি বিশেষজ্ঞের পরামর্শ অনুসরণ করুন।
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 7 Mango -->
+      <div class="crop-card" data-search="আম mango anthracnose">
+        <div class="crop-icon">🥭</div>
+        <h3>৭. আম</h3>
+        <p class="disease">অ্যানথ্রাকনোজ / দাগ রোগ</p>
+
+        <div class="medicine">
+          <strong>Product:</strong><br>
+          টিল্ট ২৫০ ইসি (Tilt)<br>
+          / স্কোর ২৫০ ইসি (Score)
+
+          <div class="notice">
+            ব্যবহার করার আগে পণ্যের অনুমোদিত লেবেল ও কৃষি বিশেষজ্ঞের পরামর্শ অনুসরণ করুন।
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 8 Mustard -->
+      <div class="crop-card" data-search="সরিষা mustard alternaria leaf spot">
+        <div class="crop-icon">🌼</div>
+        <h3>৮. সরিষা</h3>
+        <p class="disease">অলটারনারিয়া লিফ স্পট</p>
+
+        <div class="medicine">
+          <strong>Product:</strong><br>
+          আরমুরে ২০ ইসি (Armure)<br>
+          / এমিস্টার টপ (Amistar Top)
+
+          <div class="notice">
+            ব্যবহার করার আগে পণ্যের অনুমোদিত লেবেল ও কৃষি বিশেষজ্ঞের পরামর্শ অনুসরণ করুন।
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 9 Onion -->
+      <div class="crop-card" data-search="পেঁয়াজ onion purple blotch">
+        <div class="crop-icon">🧅</div>
+        <h3>৯. পেঁয়াজ</h3>
+        <p class="disease">পার্পল ব্লচ / বেগুনি দাগ</p>
+
+        <div class="medicine">
+          <strong>Product:</strong><br>
+          স্কোর ২৫০ ইসি (Score)<br>
+          / মিরাভিস ডুয়ো (Miravis Duo)
+
+          <div class="notice">
+            ব্যবহার করার আগে পণ্যের অনুমোদিত লেবেল ও কৃষি বিশেষজ্ঞের পরামর্শ অনুসরণ করুন।
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 10 Corn -->
+      <div class="crop-card" data-search="ভুট্টা corn leaf blight">
+        <div class="crop-icon">🌽</div>
+        <h3>১০. ভুট্টা</h3>
+        <p class="disease">পাতা ঝলসানো রোগ</p>
+
+        <div class="medicine">
+          <strong>Product:</strong><br>
+          টিল্ট ২৫০ ইসি (Tilt)<br>
+          / এমিস্টার টপ (Amistar Top)
+
+          <div class="notice">
+            ব্যবহার করার আগে পণ্যের অনুমোদিত লেবেল ও কৃষি বিশেষজ্ঞের পরামর্শ অনুসরণ করুন।
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <h2 class="section-title">🌱 M/S Rabbi Tredash</h2>
+
+    <p>
+      M/S Rabbi Tredash কৃষি সম্পর্কিত তথ্য ও কৃষি পণ্যের তথ্য
+      সহজভাবে কৃষকদের কাছে পৌঁছে দেওয়ার একটি উদ্যোগ।
+      ফসলের রোগ শনাক্তকরণ এবং সংশ্লিষ্ট পণ্যের তথ্য জানতে
+      এই website ব্যবহার করা যাবে।
+    </p>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 M/S Rabbi Tredash | Agriculture Information</p>
+  </footer>
+
+
+  <script>
+
+    // Card click করলে medicine information দেখাবে
+    const cards = document.querySelectorAll(".crop-card");
+
+    cards.forEach(card => {
+
+      card.addEventListener("click", function() {
+
+        const medicine = this.querySelector(".medicine");
+
+        // অন্য সব medicine বন্ধ করবে
+        document.querySelectorAll(".medicine").forEach(item => {
+          if (item !== medicine) {
+            item.classList.remove("show");
+          }
+        });
+
+        // selected medicine open/close
+        medicine.classList.toggle("show");
+
+      });
+
+    });
+
+
+    // Search function
+    function searchDisease() {
+
+      const searchValue =
+        document.getElementById("search").value.toLowerCase();
+
+      cards.forEach(card => {
+
+        const text =
+          card.getAttribute("data-search").toLowerCase();
+
+        if (text.includes(searchValue)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>
